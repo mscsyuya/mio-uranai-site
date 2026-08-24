@@ -1,0 +1,217 @@
+@import "tailwindcss";
+
+@theme {
+  /* 深い藍をベースに、アクセントは淡いゴールドのみ */
+  --color-ink: #14141f;
+  --color-ink-raised: #1a1a2e;
+  --color-ink-sunken: #101019;
+  --color-rule: #2b2b44;
+  --color-rule-soft: #22223a;
+  --color-paper: #e9e7e1;
+  --color-paper-dim: #a2a1b2;
+  --color-paper-faint: #767589;
+  --color-gold: #c9a961;
+  --color-gold-soft: #d8bd80;
+  --color-gold-dim: #8a7440;
+
+  --font-serif-jp: var(--font-serif), "Noto Serif JP", "Yu Mincho", serif;
+  --font-sans-jp: var(--font-sans), "Noto Sans JP", "Hiragino Sans", "Meiryo", sans-serif;
+
+  --animate-fade-in: fade-in 0.5s ease-out both;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+    font-family: var(--font-sans-jp);
+    line-height: 1.9;
+    font-feature-settings: "palt";
+    letter-spacing: 0.01em;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif-jp);
+    font-weight: 600;
+    line-height: 1.55;
+    letter-spacing: 0.02em;
+  }
+
+  a {
+    color: inherit;
+    text-underline-offset: 0.22em;
+  }
+
+  ::selection {
+    background: var(--color-gold-dim);
+    color: #10101a;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   記事本文の組版:最大幅 680px / 17px / 行間 1.9
+   読み物として成立させるため、カードや装飾は使わず罫線と余白で組む
+---------------------------------------------------------------- */
+.article-body {
+  font-size: 17px;
+  line-height: 1.9;
+  color: var(--color-paper);
+}
+
+.article-body > * + * {
+  margin-top: 1.55em;
+}
+
+.article-body h2 {
+  font-size: 1.32em;
+  margin-top: 2.9em;
+  margin-bottom: 0.2em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.article-body h3 {
+  font-size: 1.1em;
+  margin-top: 2.2em;
+  margin-bottom: 0.1em;
+  color: var(--color-gold-soft);
+}
+
+.article-body h2 + *,
+.article-body h3 + * {
+  margin-top: 0.85em;
+}
+
+.article-body p {
+  text-align: justify;
+  word-break: normal;
+  overflow-wrap: anywhere;
+  line-break: strict;
+}
+
+.article-body a {
+  color: var(--color-gold-soft);
+  text-decoration: underline;
+  text-decoration-color: var(--color-gold-dim);
+  text-decoration-thickness: 1px;
+}
+
+.article-body a:hover {
+  text-decoration-color: var(--color-gold-soft);
+}
+
+.article-body strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.article-body ul,
+.article-body ol {
+  padding-left: 1.4em;
+}
+
+.article-body ul { list-style: disc; }
+.article-body ol { list-style: decimal; }
+.article-body li + li { margin-top: 0.35em; }
+.article-body li::marker { color: var(--color-gold-dim); }
+
+.article-body blockquote {
+  border-left: 2px solid var(--color-gold-dim);
+  padding-left: 1.1em;
+  color: var(--color-paper-dim);
+}
+
+.article-body hr {
+  border: 0;
+  border-top: 1px solid var(--color-rule);
+  margin: 2.6em 0;
+}
+
+/* 表は本文幅を超えることがあるので、横スクロールを表の中に閉じ込める */
+.article-body .table-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--color-rule);
+  border-radius: 2px;
+}
+
+.article-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92em;
+  line-height: 1.7;
+  min-width: 30rem;
+}
+
+.article-body th,
+.article-body td {
+  border-bottom: 1px solid var(--color-rule-soft);
+  padding: 0.7em 0.9em;
+  text-align: left;
+  vertical-align: top;
+}
+
+.article-body thead th {
+  background: var(--color-ink-sunken);
+  color: var(--color-gold-soft);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.article-body tbody tr:last-child th,
+.article-body tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.article-body code {
+  font-size: 0.9em;
+  background: var(--color-ink-sunken);
+  padding: 0.15em 0.4em;
+  border-radius: 2px;
+}
+
+/* 静的ページ(プライバシーポリシー等)は本文よりやや小さめに */
+.legal-body {
+  font-size: 16px;
+  line-height: 1.95;
+  color: var(--color-paper-dim);
+}
+
+.legal-body > * + * { margin-top: 1.5em; }
+
+.legal-body h2 {
+  font-size: 1.06rem;
+  color: var(--color-paper);
+  margin-top: 2.6em;
+  margin-bottom: -0.4em;
+}
+
+.legal-body a {
+  color: var(--color-gold-soft);
+  text-decoration: underline;
+  text-decoration-color: var(--color-gold-dim);
+}
+
+.legal-body ul { padding-left: 1.3em; list-style: disc; }
+.legal-body li::marker { color: var(--color-gold-dim); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
