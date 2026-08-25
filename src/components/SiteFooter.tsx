@@ -61,7 +61,7 @@ export default function SiteFooter() {
             </p>
           )}
           <p>
-            掲載内容は運営者個人の体験・感想であり、鑑定結果には個人差があります。未来を保証するものではありません。
+            掲載内容は各社の公開情報の整理と運営者個人の見解であり、鑑定結果には個人差があります。未来を保証するものではありません。
           </p>
           <p>
             &copy; {SITE.establishedYear} {SITE.name} / {SITE.author}

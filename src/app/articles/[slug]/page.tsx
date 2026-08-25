@@ -5,7 +5,7 @@ import AffiliateCard from '@/components/AffiliateCard';
 import PrLabel from '@/components/PrLabel';
 import { getAllArticles, getArticle, getNeighbours, formatDate } from '@/lib/articles';
 import { renderArticleBody } from '@/lib/markdown';
-import { site, categoryByName } from '@/data/site';
+import { SITE, categoryByName } from '@/data/site';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -26,11 +26,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: 'article',
       title: article.title,
       description: article.description,
-      url: `${site.url}/articles/${article.slug}`,
+      url: `${SITE.url}/articles/${article.slug}`,
       publishedTime: article.date,
-      authors: [site.author],
+      authors: [SITE.author],
       tags: article.tags,
-      images: [{ url: site.ogImage, width: 1200, height: 630, alt: site.name }],
+      images: [{ url: SITE.ogImage, width: 1200, height: 630, alt: SITE.name }],
     },
   };
 }
@@ -47,15 +47,15 @@ export default async function ArticlePage({ params }: Props) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `${site.url}/articles/${article.slug}` },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE.url}/articles/${article.slug}` },
     headline: article.title,
     description: article.description,
     datePublished: article.date,
     dateModified: article.date,
     inLanguage: 'ja',
-    author: { '@type': 'Person', name: site.author, url: `${site.url}/about` },
-    publisher: { '@type': 'Organization', name: site.name, url: site.url },
-    image: `${site.url}${site.ogImage}`,
+    author: { '@type': 'Person', name: SITE.author, url: `${SITE.url}/about` },
+    publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+    image: `${SITE.url}${SITE.ogImage}`,
     keywords: article.tags.join(', '),
     isAccessibleForFree: true,
   };
@@ -104,7 +104,7 @@ export default async function ArticlePage({ params }: Props) {
 
         <footer className="mx-auto mt-16 max-w-[680px] border-t border-rule pt-8">
           <p className="text-[0.78rem] leading-[1.9] text-paper-faint">
-            この記事は運営者みおの個人的な体験と感想をもとに書いています。
+            この記事は各社が公表している情報の整理と、運営者みおの個人的な見解をもとに書いています。
             鑑定結果には個人差があり、未来を保証するものではありません。詳しくは
             <Link href="/disclaimer" className="mx-1 text-gold-soft underline decoration-gold-dim underline-offset-[0.25em]">
               免責事項

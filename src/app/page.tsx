@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import ArticleList from '@/components/ArticleList';
 import { getAllArticles, getArticlesByTag } from '@/lib/articles';
-import { site, categories } from '@/data/site';
+import { SITE, categories } from '@/data/site';
 
 export default function HomePage() {
   const articles = getAllArticles();
@@ -18,13 +18,13 @@ export default function HomePage() {
         </h1>
         <div className="mt-7 max-w-[42rem] space-y-4 text-[0.95rem] leading-[1.95] text-paper-dim">
           <p>
-            はじめまして、みおです。東京で働く28歳の独身OLで、タロットを独学で3年、
-            電話占いも3年ほど使ってきました。かつては悩むたびに違う占い師を渡り歩く、
-            いわゆる「占いジプシー」でした。
+            はじめまして、みおです。東京で働く28歳の独身OLで、タロットを独学で3年続けています。
+            悩むたびに占いを求めて渡り歩いてしまう、いわゆる「占いジプシー」という状態には
+            心当たりがあり、その距離感をずっと考えてきました。
           </p>
           <p>
-            このサイトは、そこから抜け出すまでに知っておきたかったことをまとめた備忘録です。
-            実際に登録して使ったサイトのレビューと、占いに依存せず付き合うための考え方を、
+            このサイトは、占いと健全な距離を取るために知っておきたかったことをまとめた備忘録です。
+            電話占い各社が公表している料金体系・鑑定方式の比較と、占いに依存せず付き合うための考え方を、
             誇張なしで書いています。「絶対当たる」「必ず復縁できる」といった表現は使いません。
           </p>
         </div>
@@ -82,7 +82,8 @@ export default function HomePage() {
 
       <section className="border-t border-rule py-14">
         <p className="text-[0.8rem] leading-[1.95] text-paper-faint">
-          {site.name}は、運営者が実際に利用したサービスのみを取り上げています。
+          {SITE.name}で紹介する電話占いサービスの情報は、各社が公表している内容にもとづくものです。
+          運営者はこれらのサービスの利用者ではなく、鑑定内容についての体験談は掲載していません。
           記事にはアフィリエイトリンクを含む場合があり、その記事には冒頭に「PR」を表示しています。
           詳しくは
           <Link href="/privacy" className="mx-1 text-gold-soft underline decoration-gold-dim underline-offset-[0.25em]">

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { site } from '@/data/site';
+import { SITE } from '@/data/site';
 
 export const metadata: Metadata = {
   title: '免責事項',
@@ -20,15 +20,15 @@ export default function DisclaimerPage() {
       <div className="legal-body mx-auto max-w-[680px] py-12">
         <h2>コンテンツの正確性について</h2>
         <p>
-          「{site.name}」(以下、「当サイト」)に掲載された情報は、運営者の個人的な体験・感想・
-          意見に基づくものであり、その正確性、有用性、確実性、安全性を保証するものではありません。
+          「{SITE.name}」(以下、「当サイト」)に掲載された情報は、各社が公表している情報の整理および
+          運営者の個人的な見解に基づくものであり、その正確性、有用性、確実性、安全性を保証するものではありません。
           当サイトの情報を利用したことにより発生したいかなる損害についても、運営者は一切の責任を負いません。
         </p>
 
         <h2>占いコンテンツに関する免責</h2>
         <p>
-          当サイトで紹介する占いサービス・占い師に関する情報は、運営者個人の体験や、
-          公開されている口コミを参考にしたものです。
+          当サイトで紹介する占いサービス・占い師に関する情報は、各社が公表している情報や、
+          公開されている利用者の声を参考にしたものです。
           <strong className="text-paper">
             占いの鑑定結果は個人の感想であり、当サイトはその的中や再現性を一切保証しません。
           </strong>
@@ -81,7 +81,7 @@ export default function DisclaimerPage() {
           をあわせてご確認ください。
         </p>
 
-        <p className="text-[0.85rem] text-paper-faint">制定日:{site.established}</p>
+        <p className="text-[0.85rem] text-paper-faint">制定日:{SITE.established}</p>
       </div>
     </div>
   );

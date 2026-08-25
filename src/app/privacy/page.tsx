@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { site } from '@/data/site';
+import { SITE } from '@/data/site';
 
 export const metadata: Metadata = {
   title: 'プライバシーポリシー',
@@ -18,7 +18,7 @@ export default function PrivacyPage() {
 
       <div className="legal-body mx-auto max-w-[680px] py-12">
         <p>
-          「{site.name}」(以下、「当サイト」)は、ユーザーの個人情報の保護を尊重し、
+          「{SITE.name}」(以下、「当サイト」)は、ユーザーの個人情報の保護を尊重し、
           以下の方針に基づき適切に取り扱います。
         </p>
 
@@ -91,11 +91,11 @@ export default function PrivacyPage() {
         <h2>お問い合わせ先</h2>
         <p>
           本ポリシーに関するお問い合わせは
-          <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
+          <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
           までお願いいたします。
         </p>
 
-        <p className="text-[0.85rem] text-paper-faint">制定日:{site.established}</p>
+        <p className="text-[0.85rem] text-paper-faint">制定日:{SITE.established}</p>
       </div>
     </div>
   );

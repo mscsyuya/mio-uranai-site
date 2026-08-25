@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { site } from '@/data/site';
+import { SITE } from '@/data/site';
 
 export const metadata: Metadata = {
   title: '運営者プロフィール',
@@ -13,8 +13,8 @@ const profile = [
   { label: 'ハンドルネーム', value: 'みお' },
   { label: '年齢・属性', value: '28歳・独身OL' },
   { label: '居住地', value: '東京都' },
-  { label: '占い経験', value: 'タロット独学3年/電話占い利用歴3年' },
-  { label: 'サイト開設', value: site.established },
+  { label: '占い経験', value: 'タロット独学3年' },
+  { label: 'サイト開設', value: SITE.established },
 ];
 
 export default function AboutPage() {
@@ -37,14 +37,14 @@ export default function AboutPage() {
 
         <h2>発信していること</h2>
         <p>
-          電話占い・タロット・西洋占星術の体験記、お悩み別の占いの使い方、占い師レビュー、
+          電話占いサービスの比較、タロット・西洋占星術の解説、お悩み別の占いの使い方、
           占いジプシーを卒業するためのノウハウを中心に書いています。
           「占いは"当てる"より"気付く"道具」というスタンスで、占いとの健全な距離感を試行錯誤している記録です。
         </p>
 
         <h2>このサイトで扱うテーマ</h2>
         <ul>
-          <li>電話占いサイトの比較レビュー</li>
+          <li>電話占いサービスの比較(各社が公表している情報にもとづく)</li>
           <li>タロット・西洋占星術の解説</li>
           <li>恋愛・復縁・人間関係のお悩み別考察</li>
           <li>占いとの付き合い方・依存しない使い方</li>
@@ -53,7 +53,11 @@ export default function AboutPage() {
         <h2>サイト運営の基本姿勢</h2>
         <ul>
           <li>当サイトにはアフィリエイトリンクが含まれます(該当記事の冒頭に「PR」を表示しています)</li>
-          <li>紹介する電話占いサイトは、運営者が実際に利用したサイトを中心に取り上げます</li>
+          <li>
+            紹介する電話占いサイトの情報は、各社が公表している料金・鑑定方式・システムに
+            もとづいて記載します。運営者はこれらのサービスの利用者ではないため、
+            鑑定内容や占い師個人についての体験談は掲載していません
+          </li>
           <li>
             法令(景品表示法・薬機法・特定商取引法等)を遵守し、誇大表現・優良誤認表現は使用しません
           </li>
@@ -62,14 +66,14 @@ export default function AboutPage() {
 
         <h2>運営者情報・連絡先</h2>
         <p>
-          運営者:{site.author}(ハンドルネーム)
+          運営者:{SITE.author}(ハンドルネーム)
           <br />
           連絡先:
-          <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
+          <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
           <br />
           SNS:
-          <a href={site.threads} target="_blank" rel="noopener">
-            Threads {site.threadsHandle}
+          <a href={SITE.threadsUrl} target="_blank" rel="noopener">
+            Threads {SITE.threadsHandle}
           </a>
         </p>
         <p>

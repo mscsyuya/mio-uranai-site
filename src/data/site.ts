@@ -8,7 +8,7 @@ export const SITE = {
   // --- 以下はページ側が参照するサイト共通の設定値 ---
   threadsHandle: '@mio_uranai_review',
   description:
-    '電話占い・タロット・西洋占星術を3年使ってきた運営者みおが、実際に試したサイトのレビューと、占いに依存しないための使い方をまとめた個人サイトです。',
+    'タロットを独学で3年続けている運営者みおが、電話占い各社の料金体系・鑑定方式を公開情報から比較し、占いに依存しないための付き合い方をまとめた個人サイトです。',
   /** 独自ドメイン取得後は Vercel の環境変数 NEXT_PUBLIC_SITE_URL を設定するだけで全ページに反映されます */
   url: (process.env.NEXT_PUBLIC_SITE_URL || 'https://mio-uranai-site.vercel.app').replace(/\/$/, ''),
   author: 'みお',
@@ -21,8 +21,8 @@ export const SITE = {
 export const categories = [
   {
     slug: 'reviews',
-    name: '個別サイトレビュー',
-    description: '実際に登録して使った電話占いサイトの本音レビュー。',
+    name: 'サービス比較',
+    description: '電話占い各社の料金体系・鑑定方式・システムを、公開情報から比較します。',
   },
   {
     slug: 'howto',
