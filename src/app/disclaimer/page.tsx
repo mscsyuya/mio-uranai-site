@@ -81,7 +81,7 @@ export default function DisclaimerPage() {
           をあわせてご確認ください。
         </p>
 
-        <p className="text-[0.85rem] text-paper-faint">制定日:{SITE.established}</p>
+        <p className="text-[0.85rem] text-paper-faint">制定日:{SITE.establishedText}</p>
       </div>
     </div>
   );

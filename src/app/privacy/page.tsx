@@ -95,7 +95,7 @@ export default function PrivacyPage() {
           までお願いいたします。
         </p>
 
-        <p className="text-[0.85rem] text-paper-faint">制定日:{SITE.established}</p>
+        <p className="text-[0.85rem] text-paper-faint">制定日:{SITE.establishedText}</p>
       </div>
     </div>
   );

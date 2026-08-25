@@ -14,7 +14,7 @@ const profile = [
   { label: '年齢・属性', value: '28歳・独身OL' },
   { label: '居住地', value: '東京都' },
   { label: '占い経験', value: 'タロット独学3年' },
-  { label: 'サイト開設', value: SITE.established },
+  { label: 'サイト開設', value: SITE.establishedLabel },
 ];
 
 export default function AboutPage() {

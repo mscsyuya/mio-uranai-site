@@ -13,7 +13,9 @@ export const SITE = {
   url: (process.env.NEXT_PUBLIC_SITE_URL || 'https://mio-uranai-site.vercel.app').replace(/\/$/, ''),
   author: 'みお',
   locale: 'ja_JP',
-  established: '2026年5月12日',
+  established: '2026-01-11',
+  establishedLabel: '2026年1月', // /about のサイト開設表記
+  establishedText: '2026年1月11日', // 各規約の制定日表記
   establishedYear: 2026,
   ogImage: '/og-default.png',
 } as const;
