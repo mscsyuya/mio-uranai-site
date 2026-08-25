@@ -51,7 +51,7 @@ export default async function ArticlePage({ params }: Props) {
     headline: article.title,
     description: article.description,
     datePublished: article.date,
-    dateModified: article.date,
+    dateModified: article.updated || article.date,
     inLanguage: 'ja',
     author: { '@type': 'Person', name: SITE.author, url: `${SITE.url}/about` },
     publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url },
@@ -71,6 +71,12 @@ export default async function ArticlePage({ params }: Props) {
         <header className="mx-auto max-w-[680px]">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[0.72rem] tracking-[0.1em] text-paper-faint">
             <time dateTime={article.date}>{formatDate(article.date)}</time>
+            {article.updated && (
+              <span className="text-paper-dim">
+                最終更新日:
+                <time dateTime={article.updated}>{formatDate(article.updated)}</time>
+              </span>
+            )}
             {category && (
               <Link
                 href={`/categories/${category.slug}`}

@@ -25,6 +25,12 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
             <Link href={`/articles/${article.slug}`} className="group block py-7 no-underline">
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[0.72rem] tracking-[0.1em] text-paper-faint">
                 <time dateTime={article.date}>{formatDate(article.date)}</time>
+                {article.updated && (
+                  <span className="text-paper-dim">
+                    最終更新日:
+                    <time dateTime={article.updated}>{formatDate(article.updated)}</time>
+                  </span>
+                )}
                 {category && <span className="text-gold-dim">{category.name}</span>}
                 {article.pr && <span className="text-paper-faint">PR</span>}
               </div>

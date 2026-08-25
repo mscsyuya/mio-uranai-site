@@ -6,6 +6,8 @@ export type Article = {
   slug: string;
   title: string;
   date: string;
+  /** 最終更新日。加筆したときだけ frontmatter に書く(未記入なら公開日のみ表示) */
+  updated?: string;
   tags: string[];
   description: string;
   pr: boolean;
@@ -33,6 +35,7 @@ export function getAllArticles(): Article[] {
       slug,
       title: String(data.title || slug),
       date: String(data.date || ''),
+      updated: data.updated ? String(data.updated) : undefined,
       tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
       description: String(data.description || ''),
       pr: data.pr === true,
