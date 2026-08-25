@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { SITE } from '@/data/site';
+import { SITE, affiliateProgramsText } from '@/data/site';
 
 export const metadata: Metadata = {
   title: '免責事項',
@@ -48,9 +48,7 @@ export default function DisclaimerPage() {
 
         <h2>広告・アフィリエイトについて</h2>
         <p>
-          当サイトには、A8.net、afb、アクセストレード、Link-A、もしもアフィリエイト、
-          Amazonアソシエイト、Google AdSense、各電話占いサイトのアフィリエイトプログラム等、
-          第三者配信の広告・アフィリエイトリンクが含まれます。
+          当サイトには、{affiliateProgramsText}、第三者配信の広告・アフィリエイトリンクが含まれます。
           アフィリエイトリンクを含む記事には、記事冒頭に「PR」を表示しています。
         </p>
         <p>

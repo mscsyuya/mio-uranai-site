@@ -5,6 +5,14 @@ export const SITE = {
   threadsUrl: 'https://www.threads.net/@mio_uranai_review',
   amazonAssociateActive: false, // Amazonアソシエイト審査通過後に true にする
 
+  /**
+   * お問い合わせフォームの送信先URL(Formspree 等の外部サービス)。
+   * 静的書き出しのためサーバー側の受け口を持てないので外部に委ねます。
+   * 空のあいだはフォームを描画せず、メールアドレスの直記載のみを表示します。
+   * 例: 'https://formspree.io/f/xxxxxxxx'
+   */
+  contactFormEndpoint: '',
+
   // --- 以下はページ側が参照するサイト共通の設定値 ---
   threadsHandle: '@mio_uranai_review',
   description:
@@ -19,6 +27,17 @@ export const SITE = {
   establishedYear: 2026,
   ogImage: '/og-default.png',
 } as const;
+
+/**
+ * 現時点で提携済みのアフィリエイトプログラム。
+ * 未提携のASP名を記載すると実態と不一致になり審査で不利になるため、
+ * 提携が成立したものだけをここに追記すること。
+ * この配列がプライバシーポリシーと免責事項の両方に反映されます。
+ */
+export const AFFILIATE_PROGRAMS = ['A8.net', 'Amazonアソシエイト'] as const;
+
+/** 「A8.net、Amazonアソシエイト等」の形に整形した表示用テキスト */
+export const affiliateProgramsText = `${AFFILIATE_PROGRAMS.join('、')}等`;
 
 export const categories = [
   {

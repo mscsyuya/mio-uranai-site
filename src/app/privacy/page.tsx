@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SITE } from '@/data/site';
+import { SITE, affiliateProgramsText } from '@/data/site';
 
 export const metadata: Metadata = {
   title: 'プライバシーポリシー',
@@ -27,7 +27,9 @@ export default function PrivacyPage() {
           当サイトでは、メールによるお問い合わせの際に、お名前(ハンドルネーム)、メールアドレス、
           お問い合わせ内容等の個人情報をご提供いただく場合があります。
           これらは、お問い合わせへの回答のためにのみ利用し、それ以外の目的では使用しません。
-          当サイトはお問い合わせフォームを設置しておらず、ご連絡はメールでのみ受け付けています。
+          {SITE.contactFormEndpoint
+            ? 'お問い合わせフォームからの送信内容は、外部のフォーム送信サービスを経由して運営者に届きます。'
+            : '当サイトはお問い合わせフォームを設置しておらず、ご連絡はメールでのみ受け付けています。'}
         </p>
 
         <h2>アクセス解析ツールとCookieについて</h2>
@@ -48,9 +50,7 @@ export default function PrivacyPage() {
 
         <h2>第三者配信の広告サービスについて</h2>
         <p>
-          当サイトは、第三者配信の広告サービス(A8.net、afb、アクセストレード、Link-A、
-          もしもアフィリエイト、Amazonアソシエイト、Google AdSense、各電話占いサイトの
-          アフィリエイトプログラム等)を利用しています。
+          当サイトは、第三者配信の広告サービス({affiliateProgramsText})を利用しています。
         </p>
         <p>
           これらの広告配信事業者は、ユーザーの興味に応じた商品・サービスの広告を表示するために、
