@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { site, categories } from '@/data/site';
+import { SITE, categories } from '@/data/site';
 
 const legal = [
   { href: '/about', label: '運営者情報' },
@@ -48,16 +48,23 @@ export default function SiteFooter() {
         </div>
 
         <div className="mt-12 space-y-3 border-t border-rule-soft pt-7 text-[0.75rem] leading-[1.9] text-paper-faint">
-          <p>
-            当サイトは、A8.net をはじめとするアフィリエイトプログラム、および
-            Amazon.co.jp を宣伝しリンクすることによってサイトが紹介料を獲得できる手段を提供することを目的に設定された
-            アフィリエイトプログラムである、Amazonアソシエイト・プログラムの参加者です。
-          </p>
+          {SITE.amazonAssociateActive ? (
+            <p>
+              当サイトは、A8.net をはじめとするアフィリエイトプログラム、および
+              Amazon.co.jp を宣伝しリンクすることによってサイトが紹介料を獲得できる手段を提供することを目的に設定された
+              アフィリエイトプログラムである、Amazonアソシエイト・プログラムの参加者です。
+            </p>
+          ) : (
+            <p>
+              当サイトは、アフィリエイトプログラムを利用しています。
+              広告を含む記事には冒頭に「PR」を表示しています。
+            </p>
+          )}
           <p>
             掲載内容は運営者個人の体験・感想であり、鑑定結果には個人差があります。未来を保証するものではありません。
           </p>
           <p>
-            &copy; {site.establishedYear} {site.name} / {site.author}
+            &copy; {SITE.establishedYear} {SITE.name} / {SITE.author}
           </p>
         </div>
       </div>
