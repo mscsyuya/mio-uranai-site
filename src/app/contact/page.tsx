@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import ContactForm from '@/components/ContactForm';
 import { SITE } from '@/data/site';
 
 export const metadata: Metadata = {
@@ -20,8 +21,9 @@ export default function ContactPage() {
 
       <div className="legal-body mx-auto max-w-[680px] py-12">
         <p>
-          当サイトへのお問い合わせは、下記のメールアドレス宛にお願いいたします。
-          お問い合わせフォームは設置しておりません。
+          {SITE.contactFormEndpoint
+            ? '当サイトへのお問い合わせは、下記のフォーム、またはメールアドレス宛にお願いいたします。'
+            : '当サイトへのお問い合わせは、下記のメールアドレス宛にお願いいたします。お問い合わせフォームは設置しておりません。'}
         </p>
 
         <div className="my-9 border-y border-gold-dim/45 py-6 text-center">
@@ -38,6 +40,13 @@ export default function ContactPage() {
             クリックするとメールソフトが起動します
           </p>
         </div>
+
+        {SITE.contactFormEndpoint && (
+          <>
+            <h2>お問い合わせフォーム</h2>
+            <ContactForm />
+          </>
+        )}
 
         <h2>お問い合わせ前のお願い</h2>
         <ul>
