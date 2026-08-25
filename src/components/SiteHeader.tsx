@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { site } from '@/data/site';
+import { SITE } from '@/data/site';
 
 const nav = [
   { href: '/articles', label: '記事一覧' },
@@ -13,10 +13,10 @@ export default function SiteHeader() {
       <div className="mx-auto flex max-w-4xl flex-wrap items-baseline justify-between gap-x-8 gap-y-3 px-6 py-7">
         <Link href="/" className="no-underline">
           <span className="block font-serif-jp text-[1.35rem] tracking-[0.06em] text-paper">
-            {site.name}
+            {SITE.name}
           </span>
           <span className="mt-1 block text-[0.72rem] tracking-[0.12em] text-paper-faint">
-            {site.tagline}
+            {SITE.tagline}
           </span>
         </Link>
 

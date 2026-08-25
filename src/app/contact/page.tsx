@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { site } from '@/data/site';
+import { SITE } from '@/data/site';
 
 export const metadata: Metadata = {
   title: 'お問い合わせ',
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/contact' },
 };
 
-const subject = encodeURIComponent(`【${site.name}】お問い合わせ`);
+const subject = encodeURIComponent(`【${SITE.name}】お問い合わせ`);
 
 export default function ContactPage() {
   return (
@@ -28,10 +28,10 @@ export default function ContactPage() {
           <p className="text-[0.72rem] tracking-[0.18em] text-gold-dim">MAIL</p>
           <p className="mt-3">
             <a
-              href={`mailto:${site.contactEmail}?subject=${subject}`}
+              href={`mailto:${SITE.email}?subject=${subject}`}
               className="font-serif-jp text-[1.15rem] tracking-[0.03em] text-gold-soft"
             >
-              {site.contactEmail}
+              {SITE.email}
             </a>
           </p>
           <p className="mt-3 text-[0.78rem] text-paper-faint">
@@ -55,8 +55,8 @@ export default function ContactPage() {
 
         <h2>その他の連絡手段</h2>
         <p>
-          <a href={site.threads} target="_blank" rel="noopener">
-            Threads {site.threadsHandle}
+          <a href={SITE.threadsUrl} target="_blank" rel="noopener">
+            Threads {SITE.threadsHandle}
           </a>
           のDMでも受け付けています。
         </p>

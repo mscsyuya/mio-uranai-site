@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Noto_Sans_JP, Noto_Serif_JP } from 'next/font/google';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
-import { site } from '@/data/site';
+import { SITE } from '@/data/site';
 import './globals.css';
 
 const notoSans = Noto_Sans_JP({
@@ -20,26 +20,26 @@ const notoSerif = Noto_Serif_JP({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
+  metadataBase: new URL(SITE.url),
   title: {
-    default: `${site.name}|${site.tagline}`,
-    template: `%s|${site.name}`,
+    default: `${SITE.name}|${SITE.tagline}`,
+    template: `%s|${SITE.name}`,
   },
-  description: site.description,
+  description: SITE.description,
   openGraph: {
     type: 'website',
-    siteName: site.name,
-    locale: site.locale,
-    url: site.url,
-    title: `${site.name}|${site.tagline}`,
-    description: site.description,
-    images: [{ url: site.ogImage, width: 1200, height: 630, alt: site.name }],
+    siteName: SITE.name,
+    locale: SITE.locale,
+    url: SITE.url,
+    title: `${SITE.name}|${SITE.tagline}`,
+    description: SITE.description,
+    images: [{ url: SITE.ogImage, width: 1200, height: 630, alt: SITE.name }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${site.name}|${site.tagline}`,
-    description: site.description,
-    images: [site.ogImage],
+    title: `${SITE.name}|${SITE.tagline}`,
+    description: SITE.description,
+    images: [SITE.ogImage],
   },
   alternates: { canonical: '/' },
   robots: { index: true, follow: true },
