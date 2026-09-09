@@ -34,7 +34,7 @@ export const SITE = {
  * 提携が成立したものだけをここに追記すること。
  * この配列がプライバシーポリシーと免責事項の両方に反映されます。
  */
-export const AFFILIATE_PROGRAMS = ['A8.net', 'Amazonアソシエイト'] as const;
+export const AFFILIATE_PROGRAMS = ['A8.net', 'afb', 'Amazonアソシエイト'] as const;
 
 /** 「A8.net、Amazonアソシエイト等」の形に整形した表示用テキスト */
 export const affiliateProgramsText = `${AFFILIATE_PROGRAMS.join('、')}等`;

@@ -24,6 +24,10 @@ export default function AffiliateCard({ id }: { id: string }) {
           →
         </span>
       </a>
+      {affiliate.impressionUrl ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={affiliate.impressionUrl} alt="" width={1} height={1} style={{ border: 'none' }} />
+      ) : null}
     </div>
   );
 }
