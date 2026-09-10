@@ -115,6 +115,15 @@
   text-decoration-color: var(--color-gold-soft);
 }
 
+/* 広告リンクは指で押す前提なので、タップ領域を44px以上確保する
+   (Apple 44pt / Google 48dp の推奨に合わせる)。
+   inline-flex なので本文の流れは崩さない */
+.article-body a[rel~="sponsored"] {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
 .article-body strong {
   color: #fff;
   font-weight: 600;
@@ -154,6 +163,11 @@
   border-collapse: collapse;
   font-size: 0.92em;
   line-height: 1.7;
+}
+
+/* 3列以上の表だけ最低幅を確保する。
+   2列の基本情報表はスマホ幅(約320px)に収まるので、横スクロールさせない */
+.article-body table:has(tr > *:nth-child(3)) {
   min-width: 30rem;
 }
 
@@ -208,6 +222,14 @@
 
 .legal-body ul { padding-left: 1.3em; list-style: disc; }
 .legal-body li::marker { color: var(--color-gold-dim); }
+
+/* 狭い画面では両端揃えをやめる。
+   1行あたりの文字数が少ないと、justify が字間を不自然に広げてしまう */
+@media (max-width: 640px) {
+  .article-body p {
+    text-align: left;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

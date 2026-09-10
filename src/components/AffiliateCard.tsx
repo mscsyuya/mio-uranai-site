@@ -15,7 +15,7 @@ export default function AffiliateCard({ id }: { id: string }) {
         href={affiliate.url}
         target="_blank"
         rel="nofollow sponsored noopener"
-        className="group flex items-baseline gap-3 text-[1.02rem] font-medium text-gold-soft no-underline hover:text-gold"
+        className="group flex min-h-11 items-center gap-3 text-[1.02rem] font-medium text-gold-soft no-underline hover:text-gold"
       >
         <span className="underline decoration-gold-dim underline-offset-[0.25em] group-hover:decoration-gold-soft">
           {affiliate.label}
