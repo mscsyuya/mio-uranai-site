@@ -5,6 +5,7 @@ import remarkBreaks from 'remark-breaks';
 import remarkRehype from 'remark-rehype';
 import rehypeSlug from 'rehype-slug';
 import rehypeStringify from 'rehype-stringify';
+import { getAffiliate, isLive } from '@/data/affiliates';
 
 /** 記事本文は「HTMLの塊」と「アフィリエイトカード」の並びとして表現する */
 export type Block =
@@ -36,6 +37,18 @@ async function toHtml(markdown: string): Promise<string> {
       .replace(
         /<a href="(https?:\/\/[^"]+)"/g,
         '<a href="$1" target="_blank" rel="nofollow noopener"',
+      )
+      // 本文中の [表示テキスト](affiliate:id) をアフィリエイトリンクに解決する。
+      // ・url が未入力(未提携)のあいだはリンクにせず、ただのテキストとして残す
+      // ・広告リンクなので rel に sponsored を付ける
+      // ・計測タグはカード側(AffiliateCard)で1回だけ発火させるため、ここでは付けない
+      .replace(
+        /<a href="affiliate:([a-z0-9-]+)">([\s\S]*?)<\/a>/g,
+        (_match, id: string, text: string) => {
+          const affiliate = getAffiliate(id);
+          if (!isLive(affiliate)) return text;
+          return `<a href="${affiliate.url}" target="_blank" rel="nofollow sponsored noopener">${text}</a>`;
+        },
       )
       // 比較表が本文幅(680px)を超えるので、横スクロールを表の中に閉じ込める
       .replace(/<table>/g, '<div class="table-scroll"><table>')

@@ -40,8 +40,8 @@ source: "https://mio-uranai.hatenablog.com/entry/2026/05/28/210000"
 ・全国どこからでもアクセスしたい人
 
 ### おすすめサイト
-・電話占いヴェルニ(在籍数最多)https://vernis.co.jp/
-・電話占い絆(採用率3%)https://kizuna-uranai.com/
+・電話占いヴェルニ(在籍数最多)[公式サイトを見る（PR）](affiliate:vernis)
+・電話占い絆(採用率3%)[公式サイトを見る（PR）](affiliate:kizuna)
 
 ## チャット占いの特徴と向いている人
 
